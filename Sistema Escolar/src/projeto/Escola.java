@@ -9,7 +9,7 @@ public class Escola {
     Sala sala;
     
     void exibir_dados(){
-        System.out.println("INFORMAÇÕES DA TURMA");
+        System.out.println("INFORMAÇÕES DA ESCOLA");
         System.out.println("Nome: "+this.nome);
         System.out.println("Localização: "+this.localizacao);
         System.out.println("Alunos: "+this.aluno.nome);

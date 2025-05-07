@@ -12,9 +12,10 @@ public class Avaliacao {
         System.out.println("INFORMAÇÕES DO AVALIAÇÃO");
         System.out.println("Descrição: "+this.descricao);
         System.out.println("Data de aplicação: "+this.data);
-        System.out.println("Disciplina: "+this.disciplina);
-        System.out.println("Professor: "+this.professor);
-        System.out.println("Turma: "+this.turma);
+        System.out.println("Disciplina: "+this.disciplina.nome);
+        System.out.println("Professor: "+this.professor.nome);
+        System.out.println("Turma: "+this.turma.id);
+        System.out.println("Aluno: "+this.aluno.nome);
         System.out.println("Nota: "+this.nota+"\n");
     }
     
@@ -22,6 +23,6 @@ public class Avaliacao {
         this.nota = nota;
         this.aluno = aluno;
         
-        System.out.println("O aluno "+this.aluno.nome+" obteve a nota "+this.nota+" na avaliação: "+this.descricao+".");
+        System.out.println("O aluno "+this.aluno.nome+" obteve a nota "+this.nota+" na avaliação: "+this.descricao+".\n");
     }
 }
