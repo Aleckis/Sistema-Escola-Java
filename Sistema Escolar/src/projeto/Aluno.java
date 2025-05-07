@@ -1,4 +1,4 @@
-package trabalho.sistema.escolar;
+package projeto;
 
 public class Aluno {
     String nome, matricula, cpf, nascimento;
@@ -12,8 +12,9 @@ public class Aluno {
         System.out.println("Matrícula: "+this.matricula);
         System.out.println("CPF: "+this.cpf);
         System.out.println("Data de nascimento: "+this.nascimento);
-        System.out.println("Turma: "+this.turma_atual);
-        System.out.println("Nota: "+this.nota_media+"\n");
+        System.out.println("Turma: "+this.turma_atual.id);
+        System.out.println("Nota: "+this.nota_media);
+        System.out.println("Escola: "+this.escola.nome+"\n");
     }
     
     void matricular(String matricula, Turma turma, Escola escola) {
@@ -21,7 +22,7 @@ public class Aluno {
         this.turma_atual = turma;
         this.escola = escola;
         
-        System.out.println("O aluno "+this.nome+" foi matriculado na turma "+this.turma_atual.id+" da escola "+this.escola.nome+" com sucesso.");
+        System.out.println("O aluno "+this.nome+" foi matriculado na turma "+this.turma_atual.id+" da escola "+this.escola.nome+" com sucesso.\n");
     }
       
     double calcular_media(Avaliacao av1, Avaliacao av2, Avaliacao av3) {
