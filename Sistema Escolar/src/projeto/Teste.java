@@ -3,34 +3,34 @@ package projeto;
 public class Teste {
     public static void main(String[] args) {
         Sala sala = new Sala();
-        sala.capacidade = 50;
-        sala.id = "Sala 102";
+        sala.setCapacidade(50);
+        sala.setId("Sala 102");
         
         sala.verificar_sala();
         
         Disciplina geo = new Disciplina();
-        geo.nome = "Geografia";
+        geo.setNome("Geografia");
         
         Professor pro1 = new Professor();
-        pro1.nome = "Marciel";
-        pro1.cpf = "123.634.123-64";
-        pro1.formacao = geo;
-        pro1.salario = 5000;
+        pro1.setNome("Marciel");
+        pro1.setCpf("123.634.123-64");
+        pro1.setFormacao(geo);
+        pro1.setSalario(5000);
         
         pro1.aumentar_salario(20);
         
-        geo.atribuir_professor(pro1);
+        geo.setProfessor(pro1);
 
         Aluno a1 = new Aluno();
-        a1.nome = "Astolfo";
-        a1.cpf = "432.863.235-92";
-        a1.nascimento = "18/06/2006";
+        a1.setNome("Astolfo");
+        a1.setCpf("123.123.123.12");
+        a1.setNascimento("18-06-2006");
         
         Turma turma = new Turma();
-        turma.id = "1° - A";
-        turma.aluno = a1;
-        turma.disciplina = geo;
-        turma.professor = pro1;
+        turma.setId("1° - A");
+        turma.setAluno(a1);
+        turma.setDisciplina(geo);
+        turma.setProfessor(pro1);
 
         sala.ocupar_sala(turma);
        
@@ -45,13 +45,13 @@ public class Teste {
         a1.calcular_media(av1, av2, av3);
         
         Escola escola = new Escola();
-        escola.nome = "Colégio Chess";
-        escola.localizacao = "Centro, Machado, MG";
-        escola.aluno = a1;
-        escola.disciplina = geo;
-        escola.professor = pro1;
-        escola.sala = sala;
-        escola.turma = turma;
+        escola.setNome("Colégio Chess");
+        escola.setLocalizacao("Centro, Machado, MG");
+        escola.setAluno(a1);
+        escola.setDisciplina(geo);
+        escola.setProfessor(pro1);
+        escola.setSala(sala);
+        escola.setTurma(turma);
         
         a1.matricular("001", turma, escola);
         

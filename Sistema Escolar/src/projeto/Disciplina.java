@@ -1,18 +1,32 @@
 package projeto;
 
 public class Disciplina {
-    String nome;
-    Professor professor;
+    private String nome;
+    private Professor professor;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+        
+        System.out.println("O professor "+this.professor.getNome()+" foi designado para a disciplina "+this.nome+".\n");
+    }
     
-    void exibir_dados() {
+    
+    public void exibir_dados() {
         System.out.println("INFORMAÇÕES DA DISCIPLINA");
         System.out.println("Nome: "+this.nome);
-        System.out.println("Professor: "+this.professor.nome+"\n");
+        System.out.println("Professor: "+this.professor.getNome()+"\n");
     }
     
-    void atribuir_professor(Professor professor) {
-        this.professor = professor;
-
-        System.out.println("O professor "+this.professor.nome+" foi designado para a disciplina "+this.nome+".\n");
-    }
 }
