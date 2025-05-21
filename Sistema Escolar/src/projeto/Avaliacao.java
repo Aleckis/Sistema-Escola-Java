@@ -7,6 +7,21 @@ public class Avaliacao {
     private Professor professor;
     private Disciplina disciplina;
     private Aluno aluno;
+    
+    public Avaliacao(){
+        System.out.println("Classe de Avaliação criada");
+    }
+    public Avaliacao(String descricao, String data, double nota, Turma turma, Professor professor, Disciplina disciplina, Aluno aluno) {
+        System.out.println("Classe de Avaliação criada");
+        this.descricao = descricao;
+        this.data = data;
+        this.nota = nota;
+        this.turma = turma;
+        this.professor = professor;
+        this.disciplina = disciplina;
+        this.aluno = aluno;
+    }
+    
 
     public String getDescricao() {
         return descricao;
@@ -77,10 +92,4 @@ public class Avaliacao {
         System.out.println("Nota: "+this.nota+"\n");
     }
     
-    public void atribuir_nota(double nota, Aluno aluno) {
-        this.nota = nota;
-        this.aluno = aluno;
-        
-        System.out.println("O aluno "+this.aluno.getNome()+" obteve a nota "+this.nota+" na avaliação: "+this.descricao+".\n");
-    }
 }

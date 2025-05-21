@@ -1,12 +1,19 @@
 package projeto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Escola {
     private String localizacao, nome;
-    private Aluno aluno;
-    private Professor professor;
-    private Disciplina disciplina;
-    private Turma turma;
-    private Sala sala;
+    private List<Aluno> alunos = new ArrayList<>();
+    private List<Professor> professores = new ArrayList<>();
+    private List<Disciplina> disciplinas = new ArrayList<>();
+    private List<Turma> turmas = new ArrayList<>();
+    private List<Sala> salas = new ArrayList<>();
+
+    public Escola() {
+        System.out.println("Classe de escola criada");
+    }
 
     public String getLocalizacao() {
         return localizacao;
@@ -24,54 +31,105 @@ public class Escola {
         this.nome = nome;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public List<Aluno> getAlunos() {
+        return alunos;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void adicionar_aluno(Aluno aluno) {
+        if (!alunos.contains(aluno)) {
+            alunos.add(aluno);
+        }
+    }
+    public void remover_aluno(Aluno aluno){
+        if (alunos.contains(aluno)) {
+            alunos.remove(aluno);
+        }
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public List<Professor> getProfessores() {
+        return professores;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void adicionar_professor(Professor professor) {
+        if (!professores.contains(professor)) {
+            professores.add(professor);
+        }
+    }
+    public void remover_professor(Professor professor){
+        if (alunos.contains(professor)) {
+            alunos.remove(professor);
+        }
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void adicionar_disciplina(Disciplina disciplina) {
+        if (!disciplinas.contains(disciplina)) {
+            disciplinas.add(disciplina);
+        }
+    }
+    public void remover_disciplina(Disciplina disciplina){
+        if (alunos.contains(disciplina)) {
+            alunos.remove(disciplina);
+        }
     }
 
-    public Turma getTurma() {
-        return turma;
+    public List<Turma> getTurmas() {
+        return turmas;
     }
 
-    public void setTurma(Turma turma) {
-        this.turma = turma;
+    public void adicionar_turma(Turma turma) {
+        if (!turmas.contains(turma)) {
+            turmas.add(turma);
+        }
+    }
+    public void remover_turma(Turma turma){
+        if (alunos.contains(turma)) {
+            alunos.remove(turma);
+        }
     }
 
-    public Sala getSala() {
-        return sala;
+    public List<Sala> getSalas() {
+        return salas;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void adicionar_sala(Sala sala) {
+        if (!salas.contains(sala)) {
+            salas.add(sala);
+        }
     }
-    
-    public void exibir_dados(){
+    public void remover_sala(Sala sala){
+        if (alunos.contains(sala)) {
+            alunos.remove(sala);
+        }
+    }
+
+    public void exibir_dados() {
         System.out.println("INFORMAÇÕES DA ESCOLA");
-        System.out.println("Nome: "+this.nome);
-        System.out.println("Localização: "+this.localizacao);
-        System.out.println("Alunos: "+this.aluno.getNome());
-        System.out.println("Professores: "+this.professor.getNome());
-        System.out.println("Diciplina: "+this.disciplina.getNome());
-        System.out.println("Turmas: "+this.turma.getId());
-        System.out.println("Salas: "+this.sala.getId()+"\n");
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Localização: " + this.localizacao);
+        System.out.print("Alunos: ");
+        alunos.forEach((a) -> {
+            System.out.print(a.getNome() + ", ");
+        });
+        System.out.print("\nProfessores: ");
+        professores.forEach((p) -> {
+            System.out.print(p.getNome() + ", ");
+        });
+        System.out.print("\nDisciplinas: ");
+        disciplinas.forEach((d) -> {
+            System.out.print(d.getNome() + ", ");
+        });
+        System.out.print("\nTurmas: ");
+        turmas.forEach((t) -> {
+            System.out.print(t.getId() + ", ");
+        });
+        System.out.print("\nSalas: ");
+        salas.forEach((s) -> {
+            System.out.print(s.getId() + ", ");
+        });
+        System.out.println("\n");
     }
 }

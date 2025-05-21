@@ -3,7 +3,16 @@ package projeto;
 public class Disciplina {
     private String nome;
     private Professor professor;
-
+    
+    public Disciplina(){
+        System.out.println("Classe disciplina criada");
+    }
+    public Disciplina(String nome, Professor professor) {
+        System.out.println("Classe disciplina criada");
+        this.nome = nome;
+        this.professor = professor;
+    }
+    
     public String getNome() {
         return nome;
     }
