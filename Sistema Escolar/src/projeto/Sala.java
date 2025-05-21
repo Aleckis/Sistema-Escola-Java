@@ -5,6 +5,16 @@ public class Sala {
     private String id;
     private boolean ocupada = false;
     private Turma turma;
+    
+    public Sala(){
+        System.out.println("Classe de sala criada");
+    }
+    public Sala(int capacidade, String id, boolean ocupada, Turma turma) {
+        System.out.println("Classe de sala criada");
+        this.capacidade = capacidade;
+        this.id = id;
+        this.turma = turma;
+    }
 
     public int getCapacidade() {
         return capacidade;
@@ -48,18 +58,18 @@ public class Sala {
     
     public void verificar_sala(){
         if(this.ocupada == true){
-            System.out.println("Esta sala se encontra ocupada no momento pela turma "+this.turma.getId()+".\n");
+            System.out.println("A sala "+this.id+" se encontra ocupada no momento pela turma "+this.turma.getId()+".\n");
         }else{
-            System.out.println("Esta sala se encontra livre no momento.\n");
+            System.out.println("A sala "+this.id+" se encontra livre no momento.\n");
         }
     } 
 
     public void ocupar_sala(Turma turma){
         if(this.ocupada == true){
-            System.out.println("Esta sala se encontra ocupada no momento pela turma "+this.turma.getId()+".\n");
+            System.out.println("A sala "+this.id+" se encontra ocupada no momento pela turma "+this.turma.getId()+".\n");
         }else{
             this.turma = turma;
-            System.out.println("Esta sala foi ocupada pela turma "+this.turma.getId()+".\n");
+            System.out.println("A sala "+this.id+" foi ocupada pela turma "+this.turma.getId()+".\n");
             this.ocupada = true;
         }
     }

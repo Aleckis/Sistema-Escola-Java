@@ -1,11 +1,25 @@
 package projeto;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Turma {
     private String id;
     private Professor professor;
     private Disciplina disciplina;
-    private Aluno aluno;
-
+    private List<Aluno> alunos = new ArrayList<>();
+    
+    public Turma(){
+        System.out.println("Classe de turma criada");
+    }
+    public Turma(String id, Professor professor, Disciplina disciplina, Aluno aluno) {
+        System.out.println("Classe de turma criada");
+        this.id = id;
+        this.professor = professor;
+        this.disciplina = disciplina;
+    }
+    public List<Aluno> getAlunos(){
+        return alunos;
+    }
     public String getId() {
         return id;
     }
@@ -13,7 +27,7 @@ public class Turma {
     public void setId(String id) {
         this.id = id;
     }
-
+    
     public Professor getProfessor() {
         return professor;
     }
@@ -30,18 +44,26 @@ public class Turma {
         this.disciplina = disciplina;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public void adicionar_aluno(Aluno aluno) {
+        if (!alunos.contains(aluno)) {
+            alunos.add(aluno);
+            aluno.adicionar_turma(this);
+        }
     }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    
+    public void remover_aluno(Aluno aluno){
+        if(!alunos.contains(aluno)){
+            alunos.remove(aluno);
+            aluno.remover_turma(this);
+        }
     }
     
     public void exibir_dados(){
         System.out.println("INFORMAÇÕES DA TURMA");
         System.out.println("Indentificação: "+this.id);
-        System.out.println("Alunos: "+this.aluno.getNome());
+        alunos.forEach((a) -> {
+            System.out.print(a.getNome()+ ", ");
+        });
         System.out.println("Professor da turma: "+this.professor.getNome());
         System.out.println("Disciplina: "+this.disciplina.getNome()+"\n");
     }
