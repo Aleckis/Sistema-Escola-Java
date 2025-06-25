@@ -10,14 +10,16 @@ public class Teste {
         portugues.setNome("Português");
 
         // Criando professores
-        Professor pro1 = new Professor();
+        ProfessorOficial pro1 = new ProfessorOficial();
         pro1.setNome("Poliana");
+        pro1.setAnosInstituicao(5);
         pro1.setCpf("123.456.789-00");
         pro1.setFormacao(matematica);
         pro1.setSalario(5000.0);
 
-        Professor pro2 = new Professor();
+        ProfessorSubstituto pro2 = new ProfessorSubstituto();
         pro2.setNome("João Roberto");
+        pro2.setDataFimContrato("31/12/2026");
         pro2.setCpf("987.654.321-00");
         pro2.setFormacao(portugues);
         pro2.setSalario(5000.0);
@@ -27,13 +29,16 @@ public class Teste {
         portugues.setProfessor(pro2);
 
         // Criando alunos
-        Aluno alunoA = new Aluno();
+        AlunoTecnico alunoA = new AlunoTecnico();
         alunoA.setNome("Astolfo");
+        alunoA.setCursoTecnico("Informática");
         alunoA.setCpf("111.222.333-44");
         alunoA.setNascimento("01/01/2000");
 
-        Aluno alunoB = new Aluno();
+        AlunoSuperior alunoB = new AlunoSuperior();
         alunoB.setNome("Jeremias");
+        alunoB.setCursoSuperior("Engenharia");
+        alunoB.setPeriodo(5);
         alunoB.setCpf("555.666.777-88");
         alunoB.setNascimento("02/02/2000");
 
