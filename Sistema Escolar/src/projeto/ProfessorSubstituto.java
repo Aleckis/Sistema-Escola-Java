@@ -1,11 +1,21 @@
 package projeto;
 
+import java.util.Scanner;
+
 public class ProfessorSubstituto extends Professor {
+
     private String dataFimContrato;
 
     public ProfessorSubstituto() {
         super();
-        System.out.println("Professor Substituto criado");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite a data do fim do contrato");
+        this.dataFimContrato = scan.nextLine();
+    }
+
+    public ProfessorSubstituto(String nome, String cpf, double salario, String fimcontrato) {
+        super(nome, cpf, salario);
+        this.dataFimContrato = fimcontrato;   
     }
 
     public String getDataFimContrato() {
@@ -18,8 +28,12 @@ public class ProfessorSubstituto extends Professor {
 
     @Override
     public void exibir_dados() {
-        super.exibir_dados();
-        System.out.println("Tipo: Substituto");
-        System.out.println("Fim do Contrato: " + this.dataFimContrato+"\n");
+        try {
+            super.exibir_dados();
+            System.out.println("Tipo: Substituto");
+            System.out.println("Fim do Contrato: " + this.dataFimContrato + "\n");
+        } catch (Exception e) {
+            System.out.println("Erro ao exibir dados do professor substituto: " + e.getMessage());
+        }
     }
 }

@@ -2,8 +2,10 @@ package projeto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Aluno {
+public abstract class Aluno implements ExibirDados {
+
     private String nome, cpf, nascimento;
     private int matricula;
     private static int proxid = 1;
@@ -12,10 +14,21 @@ public class Aluno {
     private List<Avaliacao> provas = new ArrayList<>();
     private Escola escola;
     private double somaTotal = 0;
-  
 
     public Aluno() {
-        System.out.println("Classe Aluno criada");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite o nome do aluno: ");
+        this.nome = scan.nextLine();
+        System.out.println("Digite o cpf do aluno: ");
+        this.cpf = scan.nextLine();
+        System.out.println("Digite a data de nascimento do aluno: ");
+        this.nascimento = scan.nextLine();
+        this.matricula = proxid++;
+    }
+    public Aluno(String cpf, String nome, String nascimento){
+        this.cpf = cpf;
+        this.nome = nome;
+        this.nascimento = nascimento;
         this.matricula = proxid++;
     }
 
@@ -76,29 +89,33 @@ public class Aluno {
     public void remover_turma(Turma turma) {
         turmas.remove(turma);
     }
-    
+
     public void adicionar_prova(Avaliacao prova) {
         if (!provas.contains(prova)) {
             provas.add(prova);
         }
     }
-    
+
     public void remover_prova(Avaliacao prova) {
         provas.remove(prova);
     }
 
     public void exibir_dados() {
-        System.out.println("INFORMAÇÕES DO ALUNO");
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Matrícula: " + this.matricula);
-        System.out.println("CPF: " + this.cpf);
-        System.out.println("Data de nascimento: " + this.nascimento);
-        System.out.print("Turmas: ");
-        turmas.forEach((t) -> {
-            System.out.print(t.getId() + ", ");
-        });
-        System.out.println("\nNota: " + this.nota_media);
-        System.out.println("Escola: " + this.escola.getNome() + "\n");
+        try {
+            System.out.println("INFORMAÇÕES DO ALUNO");
+            System.out.println("Nome: " + this.nome);
+            System.out.println("Matrícula: " + this.matricula);
+            System.out.println("CPF: " + this.cpf);
+            System.out.println("Data de nascimento: " + this.nascimento);
+            System.out.print("Turmas: ");
+            turmas.forEach((t) -> {
+                System.out.print(t.getId() + ", ");
+            });
+            System.out.println("\nNota: " + this.nota_media);
+            System.out.println("Escola: " + this.escola.getNome() + "\n");
+        } catch (Exception e) {
+            System.out.println("Erro ao exibir dados do aluno: " + e.getMessage());
+        }
     }
 
     public void matricular(Turma turma, Escola escola) {

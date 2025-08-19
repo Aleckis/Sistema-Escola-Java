@@ -1,16 +1,16 @@
 package projeto;
 
-public class Teste {
+public class TesteScan {
     public static void main(String[] args) {
         // Criando disciplinas
-        Disciplina matematica = new Disciplina("Matemática");
-        Disciplina portugues = new Disciplina("Português");
+        Disciplina matematica = new Disciplina();
+        Disciplina portugues = new Disciplina();
 
         // Criando professores
-        ProfessorOficial pro1 = new ProfessorOficial("Poliana", "123.456.789-00", 5000.0, 5);
+        ProfessorOficial pro1 = new ProfessorOficial();
         pro1.setFormacao(matematica);
 
-        ProfessorSubstituto pro2 = new ProfessorSubstituto("João Roberto", "987.654.321-00", 5000.0, "31/12/2026");
+        ProfessorSubstituto pro2 = new ProfessorSubstituto();
         pro2.setFormacao(portugues);
 
         // Associando professores às disciplinas
@@ -18,17 +18,17 @@ public class Teste {
         portugues.setProfessor(pro2);
 
         // Criando alunos
-        AlunoTecnico alunoA = new AlunoTecnico("111.222.333-44", "Astolfo", "01/01/2000", "Informática");        
-        AlunoSuperior alunoB = new AlunoSuperior("555.666.777-88", "Jeremias", "02/02/2000", "Engenharia", 5);
+        AlunoTecnico alunoA = new AlunoTecnico();        
+        AlunoSuperior alunoB = new AlunoSuperior();
 
         // Criando turmas
-        Turma turma1 = new Turma("1° Info A");
+        Turma turma1 = new Turma();
         turma1.setDisciplina(matematica);
         turma1.setProfessor(pro1);
         turma1.adicionar_aluno(alunoA);
         turma1.adicionar_aluno(alunoB);
 
-        Turma turma2 = new Turma("2° Info E");
+        Turma turma2 = new Turma();
         turma2.setDisciplina(portugues);
         turma2.setProfessor(pro2);
         turma2.adicionar_aluno(alunoA);
@@ -39,9 +39,8 @@ public class Teste {
         pro2.adicionar_turma(turma2);
 
         // Criando salas
-        Sala sala1 = new Sala("Sala 1", 30);
-
-        Sala sala2 = new Sala("Sala 2", 25);
+        Sala sala1 = new Sala();
+        Sala sala2 = new Sala();
 
         // Ocupando salas com turmas
         sala1.ocupar_sala(turma1);
@@ -69,7 +68,7 @@ public class Teste {
         alunoB.calcular_media();
         
         // Criando a escola
-        Escola escola = new Escola("IF sul de minas", "Machado MG");
+        Escola escola = new Escola();
         escola.adicionar_aluno(alunoA);
         escola.adicionar_aluno(alunoB);
         escola.adicionar_professor(pro1);

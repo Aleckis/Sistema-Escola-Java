@@ -1,9 +1,11 @@
 package projeto;
 
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Escola {
+public class Escola implements ExibirDados {
+
     private String localizacao, nome;
     private List<Aluno> alunos = new ArrayList<>();
     private List<Professor> professores = new ArrayList<>();
@@ -12,7 +14,17 @@ public class Escola {
     private List<Sala> salas = new ArrayList<>();
 
     public Escola() {
-        System.out.println("Classe de escola criada");
+        System.out.println("CRIANDO CLASSE DE ESCOLA");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite o nome da escola:");
+        this.nome = scan.nextLine();
+        System.out.println("Digite a localização da escola:");
+        this.localizacao = scan.nextLine();
+    }
+
+    public Escola(String nome, String localizacao) {
+        this.nome = nome;
+        this.localizacao = localizacao;
     }
 
     public String getLocalizacao() {
@@ -40,7 +52,8 @@ public class Escola {
             alunos.add(aluno);
         }
     }
-    public void remover_aluno(Aluno aluno){
+
+    public void remover_aluno(Aluno aluno) {
         if (alunos.contains(aluno)) {
             alunos.remove(aluno);
         }
@@ -55,7 +68,8 @@ public class Escola {
             professores.add(professor);
         }
     }
-    public void remover_professor(Professor professor){
+
+    public void remover_professor(Professor professor) {
         if (alunos.contains(professor)) {
             alunos.remove(professor);
         }
@@ -70,7 +84,8 @@ public class Escola {
             disciplinas.add(disciplina);
         }
     }
-    public void remover_disciplina(Disciplina disciplina){
+
+    public void remover_disciplina(Disciplina disciplina) {
         if (alunos.contains(disciplina)) {
             alunos.remove(disciplina);
         }
@@ -85,7 +100,8 @@ public class Escola {
             turmas.add(turma);
         }
     }
-    public void remover_turma(Turma turma){
+
+    public void remover_turma(Turma turma) {
         if (alunos.contains(turma)) {
             alunos.remove(turma);
         }
@@ -100,36 +116,42 @@ public class Escola {
             salas.add(sala);
         }
     }
-    public void remover_sala(Sala sala){
+
+    public void remover_sala(Sala sala) {
         if (alunos.contains(sala)) {
             alunos.remove(sala);
         }
     }
 
+    @Override
     public void exibir_dados() {
-        System.out.println("INFORMAÇÕES DA ESCOLA");
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Localização: " + this.localizacao);
-        System.out.print("Alunos: ");
-        alunos.forEach((a) -> {
-            System.out.print(a.getNome() + ", ");
-        });
-        System.out.print("\nProfessores: ");
-        professores.forEach((p) -> {
-            System.out.print(p.getNome() + ", ");
-        });
-        System.out.print("\nDisciplinas: ");
-        disciplinas.forEach((d) -> {
-            System.out.print(d.getNome() + ", ");
-        });
-        System.out.print("\nTurmas: ");
-        turmas.forEach((t) -> {
-            System.out.print(t.getId() + ", ");
-        });
-        System.out.print("\nSalas: ");
-        salas.forEach((s) -> {
-            System.out.print(s.getId() + ", ");
-        });
-        System.out.println("\n");
+        try {
+            System.out.println("INFORMAÇÕES DA ESCOLA");
+            System.out.println("Nome: " + this.nome);
+            System.out.println("Localização: " + this.localizacao);
+            System.out.print("Alunos: ");
+            alunos.forEach((a) -> {
+                System.out.print(a.getNome() + ", ");
+            });
+            System.out.print("\nProfessores: ");
+            professores.forEach((p) -> {
+                System.out.print(p.getNome() + ", ");
+            });
+            System.out.print("\nDisciplinas: ");
+            disciplinas.forEach((d) -> {
+                System.out.print(d.getNome() + ", ");
+            });
+            System.out.print("\nTurmas: ");
+            turmas.forEach((t) -> {
+                System.out.print(t.getId() + ", ");
+            });
+            System.out.print("\nSalas: ");
+            salas.forEach((s) -> {
+                System.out.print(s.getId() + ", ");
+            });
+            System.out.println("\n");
+        } catch (Exception e) {
+            System.out.println("Erro ao exibir dados da escola: " + e.getMessage());
+        }
     }
 }

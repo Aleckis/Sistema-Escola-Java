@@ -1,12 +1,21 @@
 package projeto;
+import java.util.Scanner; 
 
 public class Disciplina {
     private String nome;
     private Professor professor;
     
     public Disciplina(){
-        System.out.println("Classe disciplina criada");
+        System.out.println("CRIANDO CLASSE DE DISCIPLINA");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite o nome da disciplina:");
+        this.nome = scan.nextLine();
     }
+    
+    public Disciplina(String nome){
+        this.nome = nome;
+    }
+    
     public Disciplina(String nome, Professor professor) {
         System.out.println("Classe disciplina criada");
         this.nome = nome;
@@ -33,9 +42,13 @@ public class Disciplina {
     
     
     public void exibir_dados() {
+        try{
         System.out.println("INFORMAÇÕES DA DISCIPLINA");
         System.out.println("Nome: "+this.nome);
         System.out.println("Professor: "+this.professor.getNome()+"\n");
+        } catch (Exception e) {
+            System.out.println("Erro ao exibir dados da disciplina: " + e.getMessage());
+        }
     }
     
 }

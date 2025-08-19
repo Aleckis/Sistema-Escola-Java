@@ -1,6 +1,7 @@
 package projeto;
+import java.util.Scanner;
 
-public class Avaliacao {
+public class Avaliacao implements ExibirDados{
     private String descricao, data;
     private double nota;
     private Turma turma;
@@ -9,7 +10,16 @@ public class Avaliacao {
     private Aluno aluno;
     
     public Avaliacao(){
-        System.out.println("Classe de Avaliação criada");
+        System.out.println("CRIANDO AVALIAÇÃO");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite uma descrição para a prova:");
+        this.descricao = scan.nextLine();
+        System.out.println("Digite a data de aplicação da prova");
+        this.data = scan.nextLine();
+    }
+    public Avaliacao(String descricao, String data){
+        this.descricao = descricao;
+        this.data = data;
     }
     public Avaliacao(String descricao, String data, double nota, Turma turma, Professor professor, Disciplina disciplina, Aluno aluno) {
         System.out.println("Classe de Avaliação criada");
